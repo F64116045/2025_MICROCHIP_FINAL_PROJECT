@@ -20,15 +20,14 @@ typedef struct {
 } TTT_OUTPUT_TABLE;
 
 typedef struct {
-	  int RANDOM_NUMBER;
-	  int DISPLAY_NUMBER_1;
-	  int DISPLAY_NUMBER_2;
+	int RANDOM_NUMBER;
+	int DISPLAY_NUMBER_1;
+	int DISPLAY_NUMBER_2;
     int P1_RESULT;
     int P2_RESULT;
-    int P1_WIN;
-    int P2_WIN;
-    unsigned long tick100us;//0.0001s//-
-    int PLAYER1_STATE;//-
+    int WINNER;// -1 eeror ,0 draw ,1 p1 win ,2 p2win
+    unsigned long tick100us;//0.0001s //-
+    int PLAYER1_STATE; //-
     int PLAYER2_STATE;//-
 } REACTION_OUTPUT_TABLE;
 
@@ -41,14 +40,14 @@ typedef struct {
 	int MISS;
 	int NOT_HIT_NOT_MISS;
 	long REMAINING_TIME; // 0.001us 
-  int WINNER;
+  int WINNER;// -1 eeror ,0 draw ,1 p1 win ,2 p2win
   unsigned long tick100us;//0.001s //-
 	int PLAYER1_STATE;//-
 	int PLAYER2_STATE;//-
 }WHAC_A_MOLE_OUTPUT_TABLE;
 
 typedef struct {
-    int WHO_WIN;
+    int WHO_WIN; // -1 eeror ,0 draw ,1 p1 win ,2 p2win
     int P1_WIN_AMOUNT;
     int P2_WIN_AMOUNT;
 }END_OUTPUT_TABLE;
