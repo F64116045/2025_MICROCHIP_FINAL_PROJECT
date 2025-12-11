@@ -1,22 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
-typedef struct {
-	int RANDOM_NUMBER;
-	int DISPLAY_NUMBER_1;
-	int DISPLAY_NUMBER_2;
-    int P1_RESULT;
-    int P2_RESULT;
-    int WINNER;// -1 eeror ,0 draw ,1 p1 win ,2 p2win
-    unsigned long tick100us;//0.000100s //0.1ms
-    int PLAYER1_STATE; //-
-    int PLAYER2_STATE;//-
-} REACTION_OUTPUT_TABLE;
+#include "INTERFACE.h"
 
 REACTION_OUTPUT_TABLE REACTION_START(REACTION_OUTPUT_TABLE REACTO_TABLE){
     srand((unsigned)time(NULL));
     REACTO_TABLE.RANDOM_NUMBER = rand() % 100 + 1;
+    REACTO_TABLE.DISPLAY_NUMBER_1 = 0;
+    REACTO_TABLE.DISPLAY_NUMBER_2 = 0;
+    REACTO_TABLE.P1_RESULT = -1;
+    REACTO_TABLE.P2_RESULT = -1;
     return REACTO_TABLE;
 }
 
@@ -63,7 +56,7 @@ REACTION_OUTPUT_TABLE REACTION_UPDATE_WHO_WIN(REACTION_OUTPUT_TABLE REACTO_TABLE
         REACTO_TABLE.WINNER = 2;
     }
     else{
-        REACTO_TABLE.WINNER = 3;
+        REACTO_TABLE.WINNER = 0;
     }
 
     return REACTO_TABLE;
