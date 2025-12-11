@@ -16,6 +16,15 @@ typedef struct {
 }HINT_OUTPUT_TABLE;
 
 typedef struct {
+        /***
+        board: 0 is O, 1 is X, -1 is non-fill
+        0,1,2
+        3,4,5
+        6,7,8
+        curplayer: 0 is O, 1 is X (who lead board change this time)
+        detwinner: 0 no winner, 1 has winner
+        success: the move legal or not
+    ***/
 	int BOARD[9];
 	int CURPLAYER;
 	int DETWINNER;
@@ -61,17 +70,17 @@ typedef struct {
 #define STATE_GAMEOVER 2
 
 //UART
-void UART_INITIALIZE();
-void START_OUTPUT();
+void UART_INITIALIZE(void);
+void START_OUTPUT(void);
 void HINT_OUTPUT(HINT_OUTPUT_TABLE HO_TABLE);
 void TTT_OUTPUT(TTT_OUTPUT_TABLE TTTO_TABLE);
 void REACTION_OUTPUT(REACTION_OUTPUT_TABLE REACTO_TABLE);
-void WHAC_A_MOLE_UPDATE(WHAC_A_MOLE_OUTPUT_TABLE WAWO_TABLE);
+void WHAC_A_MOLE_OUTPUT(WHAC_A_MOLE_OUTPUT_TABLE WAWO_TABLE);
 void END_OUTPUT(END_OUTPUT_TABLE EO_TABLE);
 
 //TTT
 TTT_OUTPUT_TABLE TTT_START(TTT_OUTPUT_TABLE TTTO_TABLE);// initialize
-TTT_OUTPUT_TABLE TTT_UPDATE(TTT_OUTPUT_TABLE TTTO_TABLE,int P1_PRESS,int P2_PRESS,int GC_TABLE.ADC_VALUE);
+TTT_OUTPUT_TABLE TTT_UPDATE(TTT_OUTPUT_TABLE TTTO_TABLE,int P1_PRESS,int P2_PRESS,int CURSOR);
 
 
 //REACTION GAME
