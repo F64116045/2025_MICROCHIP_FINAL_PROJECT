@@ -1,7 +1,7 @@
 #include <xc.h>
 #include <stdio.h>
 #include <string.h>
-#include "shared_structs.h"  // Required for table definitions
+#include "INTERFACE.h"  // Required for table definitions
 #include "uart.h"            // Required for UART_Write_Text
 
 // ==========================================
